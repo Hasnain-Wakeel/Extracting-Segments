@@ -53,3 +53,78 @@
 // let sentence = "To be or not to be.";
 // let segIndex = sentence.lastIndexOf("be");
 // console.log(segIndex)
+
+// -----------------------------------------------------------------------
+
+// Finding A Character At A Location :
+
+// let country = "Pakistan";
+// let firstChar = country.slice(0, 1);
+// console.log(firstChar);
+
+// let country = "Pakistan";
+// let firstChar = country.charAt(0);
+// console.log(firstChar);
+
+// ------------------------
+
+// let country = "Pakistan";
+// let lastChar = country.slice(-1);
+// console.log(lastChar);
+
+// let country = "Pakistan";
+// let lastChar = country.charAt(country.length - 1);
+// console.log(lastChar);
+
+// ------------------ Checking Exclamation Mark in a Sentence : ------------------
+
+// let text = prompt("Enter a sentence");
+
+// for (var i = 0; i < text.length; i++) {
+//   if (text.charAt(i) === "!") {
+//     console.log(text);
+//     console.log("Exclamation mark found!");
+//     break; // stop checking after first "!"
+//   }
+// }
+
+// if (text.indexOf("!") === -1) {
+//   console.log(text);
+//   console.log("Exclamation mark not found!");
+// }
+
+// ------------ Other Ways To Check Exclamation Mark in a Sentence : ------------
+
+// let text = prompt("Enter a sentence:");
+// let found = false;
+
+// for (let i = 0; i < text.length; i++) {
+//   if (text[i] === "!") {
+//     found = true;
+//     break; //  Stops the loop after finding one
+//   }
+// }
+
+// console.log(text);
+
+// if (found === true) {
+//   console.log("Exclamation mark found!");
+// } 
+// else {
+//   console.log("Exclamation mark not found!");
+// }
+
+// -------------------------
+
+// let text = prompt("Enter a sentence:").trim();
+
+// if (text.includes("!")) {
+//   console.log(text);
+//   console.log("Exclamation mark found!");
+// } 
+// else {
+//   console.log(text);
+//   console.log("Exclamation mark not found!");
+// }
+
+// -------------------------
