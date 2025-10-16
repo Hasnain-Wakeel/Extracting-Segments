@@ -109,7 +109,7 @@
 
 // if (found === true) {
 //   console.log("Exclamation mark found!");
-// } 
+// }
 // else {
 //   console.log("Exclamation mark not found!");
 // }
@@ -121,10 +121,35 @@
 // if (text.includes("!")) {
 //   console.log(text);
 //   console.log("Exclamation mark found!");
-// } 
+// }
 // else {
 //   console.log(text);
 //   console.log("Exclamation mark not found!");
 // }
 
 // -------------------------
+
+// let userName = prompt("Enter Your Name :").trim();
+
+// for (i = 0; i < userName.length; i++) {
+//   if (
+//     userName.charAt(i) === "$" ||
+//     userName.charAt(i) === "!" ||
+//     userName.charAt(i) === "@" ||
+//     userName.charAt(i) === "#" ||
+//     userName.charAt(i) === "%" ||
+//     userName.charAt(i) === "^" ||
+//     userName.charAt(i) === "&" ||
+//     userName.charAt(i) === "*" ||
+//     userName.charAt(i) === "(" ||
+//     userName.charAt(i) === ")" ||
+//     userName.charAt(i) === "-" ||
+//     userName.charAt(i) === "_" ||
+//     userName.charAt(i) === "+" ||
+//     userName.charAt(i) === "="
+//   ) {
+//     console.log("Special Characters are not allowed in Name !!!");
+//     break;
+//   }
+// }
+// console.log(userName);
