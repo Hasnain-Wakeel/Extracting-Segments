@@ -25,6 +25,34 @@
 
 // -------------------------------------------------------------------------------
 
+// Replacing a String by another Using Some JS Method :
+
+// let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
+// let newParagraph = paragraph.replace("Hasnain", "Ali");   // The replace keyword only replaces the first "Hasnain"
+// console.log(newParagraph);
+
+
+// If you want to replace all the "Hasnain" in the sentence, you can use the "replaceAll()" method instead :
+
+// let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
+// let newParagraph = paragraph.replaceAll("Hasnain", "Ali");
+// console.log(newParagraph);
+
+
+// An old Method to do the same thing is that :
+
+// let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
+// let newParagraph = paragraph.replace(/Hasnain/g, "Ali");
+// console.log(newParagraph);
+
+// Another Old Method to do the same thing is that :
+
+// let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
+// let newParagraph = paragraph.split("Hasnain").join("Ali");  
+// // The split method splits the string into an array and then the join method joins the array into a string.
+// console.log(newParagraph);
+
+
 // Checking Positions/Indexes :
 
 // let country = "Pakistan"
@@ -36,7 +64,6 @@
 // Now , we have another method to replace the string with less code :
 
 // let text = "World War II was a global war that lasted from 1939 to 1945.";
-
 // let firstChar = text.indexOf("World War II")
 
 // // console.log(firstChar)
@@ -287,42 +314,58 @@
 
 // Final Version (Checking Special Characters and Numbers) until the user gives a valid name :
 
-let userName;
+// let userName;
 
-do {
-  userName = prompt("Enter Your Name :").trim();
+// do {
+//   userName = prompt("Enter Your Name :").trim();
 
-  // 1. Agar user ne kuch bhi nahi likha
-  if (userName === "") {
-    alert("Please enter your name!");
-    continue; // loop dobara chalao
-  }
+//   // 1. Agar user ne kuch bhi nahi likha
+//   if (userName === "") {
+//     alert("Please enter your name!");
+//     continue; // loop dobara chalao
+//   }
 
-  // 2. Special characters aur numbers check karne ke liye
-  let hasInvalidChar = false;
+//   // 2. Special characters aur numbers check karne ke liye
+//   let hasInvalidChar = false;
 
-  for (let i = 0; i < userName.length; i++) {
-    let characters = userName.charAt(i);
+//   for (let i = 0; i < userName.length; i++) {
+//     let characters = userName.charAt(i);
 
-    // Agar special character ya number mil jaye
-    if (
-      "$!@#%^&*()-_+=[]{}|:/?.',\"\\".includes(characters) || (!isNaN(characters) && characters !== " ") // Single Space is allowed
-    ) {
-      hasInvalidChar = true;
-      break;
-    }
-  }
+//     // Agar special character ya number mil jaye
+//     if (
+//       "$!@#%^&*()-_+=[]{}|:/?.',\"\\".includes(characters) || (!isNaN(characters) && characters !== " ") // Single Space is allowed
+//     ) {
+//       hasInvalidChar = true;
+//       break;
+//     }
+//   }
 
-  // 3. Agar koi invalid character mila
-  if (hasInvalidChar) {
-    alert("Numbers or Special Characters are not allowed in Name!");
-    continue;               //  Dubara prompt dikhaye ga
-  }
+//   // 3. Agar koi invalid character mila
+//   if (hasInvalidChar) {
+//     alert("Numbers or Special Characters are not allowed in Name!");
+//     continue;               //  Dubara prompt dikhaye ga
+//   }
 
-  // Agar sab sahi hai to loop se bahar nikal jao
-  break;
-} while (true);
+//   // Agar sab sahi hai to loop se bahar nikal jao
+//   break;
+// } while (true);
 
-console.log("Welcome, " + userName + "!");
+// console.log("Welcome, " + userName + "!");
 
 // -----------------------------------------------------------------------------------------------------------
+
+// Spread Operator Of Arrays In ES-6 :
+
+// let array = [1, 2, 3];
+// let newArray = [...array];     // Copies from the Original Array
+// console.log(newArray);
+
+// let arr1 = [1, 2, 3];
+// let arr2 = [4, 5, 6];
+// let arr3 = [...arr1, ...arr2];
+// console.log(arr3);
+
+// let arr1 = [1, 2, 3];
+// let arr2 = [4, 5, 6];
+// let arr3 = [...arr1, ...arr2, 7, 8, 9];
+// console.log(arr3);
