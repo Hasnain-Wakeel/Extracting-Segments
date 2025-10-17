@@ -129,6 +129,8 @@
 
 // -------------------------
 
+// Long Hand Method :
+
 // let userName = prompt("Enter Your Name :").trim();
 
 // for (i = 0; i < userName.length; i++) {
@@ -146,10 +148,181 @@
 //     userName.charAt(i) === "-" ||
 //     userName.charAt(i) === "_" ||
 //     userName.charAt(i) === "+" ||
-//     userName.charAt(i) === "="
+//     userName.charAt(i) === "=" ||
+//     userName.charAt(i) === "[" ||
+//     userName.charAt(i) === "]" ||
+//     userName.charAt(i) === "{" ||
+//     userName.charAt(i) === "}" ||
+//     userName.charAt(i) === "|" ||
+//     userName.charAt(i) === ":" ||
+//     userName.charAt(i) === "/" ||
+//     userName.charAt(i) === "?" ||
+//     userName.charAt(i) === "." ||
+//     userName.charAt(i) === "," ||
+//     userName.charAt(i) === "'" ||
+//     userName.charAt(i) === '"' ||
+//     userName.charAt(i) === " \ "
 //   ) {
 //     console.log("Special Characters are not allowed in Name !!!");
 //     break;
 //   }
 // }
 // console.log(userName);
+
+// ---------------------- Checking Empty String and Special Characters : ----------------
+
+        // This Loop only runs once, if the condition (user name is empty or special character) is true , 
+                        // it will stop the loop and display/print the message.
+
+
+// Short Hand Method :
+
+// let userName = prompt("Enter Your Name :").trim();
+
+// if (userName === "") {
+//   console.log("Please enter your name!");
+// } else {
+//   let hasSpecialChar = false;
+
+//   for (let i = 0; i < userName.length; i++) {
+//     let Characters = userName.charAt(i);
+//     if ("$!@#%^&*()-_+=[]{}|:/?.',\"\\".includes(Characters)) {
+//       hasSpecialChar = true;
+//       break;
+//     }
+//   }
+
+//   if (hasSpecialChar) {
+//     console.log("Special characters are not allowed in Name!");
+//   } else {
+//     console.log("Welcome, " + userName + "!");
+//   }
+// }
+
+// ---------------------------
+
+// Using Do While Loop :
+            //   "This loop runs again and again, if the condition (user name is empty) is true , 
+                    //   it will keep running until the user gives a valid name."
+
+// let userName;
+
+// do {
+//   userName = prompt("Enter Your Name :").trim();
+//   if (userName === "") {
+//     alert("Please enter your name!");
+//   }
+// } while (userName === "");
+
+// console.log("Welcome, " + userName + "!");
+
+
+// ------------ Checking Empty Name and Special Characters in the UserInput and shows Alerts : --------------
+
+// let userName;
+
+// do {
+//   userName = prompt("Enter Your Name :").trim();
+
+//   // 1. Agar user nay kuch bhi nahi likha :
+
+//   if (userName === "") {
+//     alert("Please enter your name!");
+//     continue;                   // loop ko dobara chalao
+//   }
+
+//   // 2. Agar user nay special characters likhe :
+
+//   let hasSpecialChar = false;
+//   for (let i = 0; i < userName.length; i++) {
+//     let ch = userName.charAt(i);
+//     if ("$!@#%^&*()-_+=[]{}|:/?.',\"\\".includes(ch)) {
+//       hasSpecialChar = true;
+//       break;
+//     }
+//   }
+
+//   if (hasSpecialChar) {
+//     alert("Special characters are not allowed in Name!");
+//     userName = "";              // taake loop repeat ho
+//   }
+// } while (userName === "");      // Jab tak user valid name nahi likhta, loop chalta rahega
+
+// console.log("Welcome, " + userName + "!");
+
+
+// ------------ Checking Empty Name and Special Characters in the UserInput and shows/Consoles Messages :--------------
+
+// let userName;
+
+// do {
+//   userName = prompt("Enter Your Name :").trim();
+
+//   if (userName === "") {
+//     console.log("Please enter your name!");
+//     continue;
+//   }
+
+//   let hasSpecialChar = false;
+//   for (let i = 0; i < userName.length; i++) {
+//     let ch = userName.charAt(i);
+//     if ("$!@#%^&*()-_+=[]{}|:/?.',\"\\".includes(ch)) {
+//       hasSpecialChar = true;
+//       break;
+//     }
+//   }
+
+//   if (hasSpecialChar) {
+//     console.log("Special characters are not allowed in Name!");
+//     continue;
+//   }
+
+//   break; // agar sab sahi hai toh loop se bahar nikal jao
+// } while (true);
+
+// console.log("Welcome, " + userName + "!");
+
+// --------------------------------
+
+
+// Final Version (Checking Special Characters and Numbers) until the user gives a valid name :
+
+let userName;
+
+do {
+  userName = prompt("Enter Your Name :").trim();
+
+  // 1. Agar user ne kuch bhi nahi likha
+  if (userName === "") {
+    alert("Please enter your name!");
+    continue; // loop dobara chalao
+  }
+
+  // 2. Special characters aur numbers check karne ke liye
+  let hasInvalidChar = false;
+
+  for (let i = 0; i < userName.length; i++) {
+    let characters = userName.charAt(i);
+
+    // Agar special character ya number mil jaye
+    if (
+      "$!@#%^&*()-_+=[]{}|:/?.',\"\\".includes(characters) || (!isNaN(characters) && characters !== " ") // Single Space is allowed
+    ) {
+      hasInvalidChar = true;
+      break;
+    }
+  }
+
+  // 3. Agar koi invalid character mila
+  if (hasInvalidChar) {
+    alert("Numbers or Special Characters are not allowed in Name!");
+    continue;               //  Dubara prompt dikhaye ga
+  }
+
+  // Agar sab sahi hai to loop se bahar nikal jao
+  break;
+} while (true);
+
+console.log("Welcome, " + userName + "!");
+
+// -----------------------------------------------------------------------------------------------------------
