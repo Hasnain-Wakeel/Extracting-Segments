@@ -1,57 +1,91 @@
-// The New Yorker magazine doesn't allow the phrase "World War II. " They say it should
+// -----------------------------------------------------------------------------------
+// ------------ Measuring , Extracting , Modifying and Replacing Strings : ------------
+// -----------------------------------------------------------------------------------
+
+// --------------- Replacing a String by another : ---------------
+
+// The New York magazine doesn't allow the phrase "World War II. " They say it should
 // be "the Second World War." So let's search the following sentence for the banned characters
 // and replace them with the phrase that the New Yorker prefers.
 
-// ShortHand Method :
+// ----------------------------------------------------------------------------------------------
 
-// let paragraph = "World War II was a global war that lasted from 1939 to 1945.";
-// let newParagraph = paragraph.replace("World War II", "The Second World War");
-// console.log(newParagraph);
-
-// ---------------------------------------------------------------------------
-
-// LongHand Method:
+// LongHand Method : (The Old Method)
 
 // let paragraph = "World War II was a global war that lasted from 1939 to 1945.";
 // let warName = "World War II";
 // let newWarName = "The Second World War";
 
 // for (i = 0; i <= paragraph.length; i++) {
-//   if (paragraph.slice(i, i + 12) === warName) {
-//     paragraph = paragraph.slice(0, i) + newWarName + paragraph.slice(i + 12);
+//     if (paragraph.slice(i, i + 12) === warName) {
+//             paragraph = paragraph.slice(0, i) + newWarName + paragraph.slice(i + 12);
+//                                                    // This slice takes all the characters after the "World War II"
 //   }
 // }
 // console.log(paragraph);
 
-// -------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------
 
-// Replacing a String by another Using Some JS Method :
+// --------------- ShortHand Method : ---------------
 
-// let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
-// let newParagraph = paragraph.replace("Hasnain", "Ali");   // The replace keyword only replaces the first "Hasnain"
+// let paragraph = "World War II was a global war that lasted from 1939 to 1945.";
+// let newParagraph = paragraph.replace("World War II", "The Second World War");
 // console.log(newParagraph);
 
+// --------------------------------------------------------------------------------------------------
+
+// --------------- Replacing a String by another Using Some JS Method : ---------------
+
+// let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
+// let newParagraph = paragraph.replace("Hasnain", "Ali");
+//   --->    The 'replace' keyword only replaces the first "Hasnain"
+// console.log(newParagraph);
+
+// -------------------
 
 // If you want to replace all the "Hasnain" in the sentence, you can use the "replaceAll()" method instead :
 
 // let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
+
 // let newParagraph = paragraph.replaceAll("Hasnain", "Ali");
+
 // console.log(newParagraph);
 
-
-// An old Method to do the same thing is that :
+// --------------- An old Method to do the same thing is that : ---------------
 
 // let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
-// let newParagraph = paragraph.replace(/Hasnain/g, "Ali");
+
+// let newParagraph = paragraph.replace(/Hasnain/g, "Ali");             // /name/g is a regular expression/regex.
+
 // console.log(newParagraph);
 
-// Another Old Method to do the same thing is that :
+// ------------------ Another Old Method to do the same thing is that : ------------------
+
+// -------------  Split and Join Method : ---------------
+
+// let paragraph = "My name is 'Hasnain' and my cousin name is also 'Hasnain' and my friend name is also 'Hasnain'.";
+
+// let splitting = paragraph.split("Hasnain");
+
+// let joining = splitting.join("Ali");
+
+// // The 'split method' splits the string into an array at those points where there is a "Hasnain" and then
+// // the 'join method' joins the array into a string, with replacing the "Hasnain" with "Ali".
+
+// console.log(joining);
+
+// ------------------------------------------------------------------------------------------------
 
 // let paragraph = "My name is Hasnain and my cousin name is also Hasnain and my friend name is also Hasnain.";
-// let newParagraph = paragraph.split("Hasnain").join("Ali");  
-// // The split method splits the string into an array and then the join method joins the array into a string.
+
+// let newParagraph = paragraph.split("Hasnain").join("Ali");
+
+// // The 'split method' splits the string into an array at those points where there is a "Hasnain" and then
+// // the 'join method' joins the array into a string, with replacing the "Hasnain" with "Ali".
+
 // console.log(newParagraph);
 
+// --------------------
 
 // Checking Positions/Indexes :
 
@@ -61,25 +95,27 @@
 
 // -------------------------
 
-// Now , we have another method to replace the string with less code :
+// Now , we have another method to replace the string with less code the FOR Loop :
 
 // let text = "World War II was a global war that lasted from 1939 to 1945.";
-// let firstChar = text.indexOf("World War II")
+// let firstChar = text.indexOf("World War II");
 
 // // console.log(firstChar)
 
 // if (firstChar.text !== -1){
 //     text = text.slice(0, firstChar) + "The Second World War" + text.slice(firstChar + 12)
 // }
-// console.log(text)
+// console.log(text);
 
 // -------------------------------------
 
 // If there are multiple same words or strings in the sentence , you can check the last word by "lastIndexOf()" :
 
 // let sentence = "To be or not to be.";
-// let segIndex = sentence.lastIndexOf("be");
-// console.log(segIndex)
+
+// let lastIndex = sentence.lastIndexOf("be");
+
+// console.log(lastIndex);
 
 // -----------------------------------------------------------------------
 
@@ -89,6 +125,8 @@
 // let firstChar = country.slice(0, 1);
 // console.log(firstChar);
 
+//          "OR"
+
 // let country = "Pakistan";
 // let firstChar = country.charAt(0);
 // console.log(firstChar);
@@ -97,7 +135,9 @@
 
 // let country = "Pakistan";
 // let lastChar = country.slice(-1);
-// console.log(lastChar);
+// console.log("slice(-1) -->" , lastChar);
+
+//         "OR"
 
 // let country = "Pakistan";
 // let lastChar = country.charAt(country.length - 1);
@@ -105,19 +145,43 @@
 
 // ------------------ Checking Exclamation Mark in a Sentence : ------------------
 
-// let text = prompt("Enter a sentence");
+// let text = prompt("Enter a sentence").trim();
+// let exclamationMark = false;
 
-// for (var i = 0; i < text.length; i++) {
-//   if (text.charAt(i) === "!") {
+// if (text === "" || text === null || text === undefined) {
+//   console.log("Please enter some text!");
+// } 
+// else {
+//   for (var i = 0; i < text.length; i++) {
+//     if (text.charAt(i) === "!") {
+//       exclamationMark = true;
+//       break; // stops checking after first "!"
+//     }
+//   }
+
+//   if (exclamationMark === true) {
 //     console.log(text);
 //     console.log("Exclamation mark found!");
-//     break; // stop checking after first "!"
+//   } 
+//   else if (exclamationMark === false) {
+//     console.log(text);
+//     console.log("Exclamation mark not found!");
 //   }
 // }
+
+// -------------------------------
+
+// Short Hand Method :
+
+// let text = prompt("Enter a sentence").trim();
 
 // if (text.indexOf("!") === -1) {
 //   console.log(text);
 //   console.log("Exclamation mark not found!");
+// }
+// else {
+//   console.log(text);
+//   console.log("Exclamation mark found!");
 // }
 
 // ------------ Other Ways To Check Exclamation Mark in a Sentence : ------------
@@ -126,7 +190,7 @@
 // let found = false;
 
 // for (let i = 0; i < text.length; i++) {
-//   if (text[i] === "!") {
+//   if (text[i] === "!") {                                    //  (text[i]) is same as (text.charAt(i))
 //     found = true;
 //     break; //  Stops the loop after finding one
 //   }
@@ -198,9 +262,8 @@
 
 // ---------------------- Checking Empty String and Special Characters : ----------------
 
-        // This Loop only runs once, if the condition (user name is empty or special character) is true , 
-                        // it will stop the loop and display/print the message.
-
+// This Loop only runs once, if the condition (user name is empty or special character) is true ,
+// it will stop the loop and display/print the message.
 
 // Short Hand Method :
 
@@ -229,8 +292,8 @@
 // ---------------------------
 
 // Using Do While Loop :
-            //   "This loop runs again and again, if the condition (user name is empty) is true , 
-                    //   it will keep running until the user gives a valid name."
+//   "This loop runs again and again, if the condition (user name is empty) is true ,
+//   it will keep running until the user gives a valid name."
 
 // let userName;
 
@@ -242,7 +305,6 @@
 // } while (userName === "");
 
 // console.log("Welcome, " + userName + "!");
-
 
 // ------------ Checking Empty Name and Special Characters in the UserInput and shows Alerts : --------------
 
@@ -277,7 +339,6 @@
 
 // console.log("Welcome, " + userName + "!");
 
-
 // ------------ Checking Empty Name and Special Characters in the UserInput and shows/Consoles Messages :--------------
 
 // let userName;
@@ -310,7 +371,6 @@
 // console.log("Welcome, " + userName + "!");
 
 // --------------------------------
-
 
 // Final Version (Checking Special Characters and Numbers) until the user gives a valid name :
 
